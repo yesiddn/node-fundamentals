@@ -22,3 +22,67 @@ Características principales de JavaScript:
 **Event Loop:** Se encarga de resolver los eventos ultra rápidos que llegan desde el Event Queue. En caso de no poder resolverse rápido, enviá el evento al Thread Pool.
 
 **Thread Pool:** Se encarga de gestionar los eventos de forma asíncrona. Una vez terminado lo devuelve al Event Loop. El Event Loop vera si lo pasa a Event Queue o no.
+
+## Herramientas: Nodemon y PM2
+
+### Nodemon
+
+Es una herramienta que nos permite reiniciar el servidor automáticamente cada vez que detecta un cambio en el código. Es muy útil para desarrollo.
+
+**Instalación:**
+
+```bash
+npm install -g nodemon
+```
+
+> **NOTA:** El parámetro -g es para instalarlo de forma global.
+
+**Uso:**
+
+```bash
+nodemon [archivo]
+```
+
+### PM2
+
+Es una herramienta que nos permite administrar en producción nuestro servidor. Nos permite escalarlo, reiniciarlo, monitorearlo, etc.
+
+**Instalación:**
+
+```bash
+npm install -g pm2
+```
+
+**Uso:**
+
+- Iniciar el servidor:
+
+```bash
+pm2 start [archivo]
+```
+
+- Detener el servidor:
+
+```bash
+pm2 stop [archivo]
+```
+
+- Ver el estado del servidor:
+
+```bash
+pm2 status
+```
+
+- Ver los logs del servidor:
+
+```bash
+pm2 logs
+```
+
+- Ver monitoreo del servidor:
+
+```bash
+pm2 monit
+```
+
+> **NOTA:** Nodemon es una herramienta muy útil para desarrollo, ya que cada vez que detecta un cambio en el servidor ejecuta toda la aplicación de nuevo. Mientras que, PM2 es una herramienta para producción, ya que nos permite escalar, reiniciar, monitorear, etc.
