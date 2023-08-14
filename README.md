@@ -86,3 +86,16 @@ pm2 monit
 ```
 
 > **NOTA:** Nodemon es una herramienta muy útil para desarrollo, ya que cada vez que detecta un cambio en el servidor ejecuta toda la aplicación de nuevo. Mientras que, PM2 es una herramienta para producción, ya que nos permite escalar, reiniciar, monitorear, etc.
+
+## Módulos
+
+### Global
+
+Son módulos que vienen por defecto en NodeJS y no es necesario instalarlos. Algunos de ellos son:
+
+- **console:** Nos permite imprimir en consola.
+- **process:** Nos permite acceder al proceso de NodeJS.
+- **setTimeOut:** Nos permite ejecutar una función después de un tiempo determinado.
+- **setInterval:** Nos permite ejecutar una función cada cierto tiempo.
+
+![Resumen.](https://static.platzi.com/media/user_upload/global-fa55c760-fa57-43f2-a670-a86345c49c42.jpg)
