@@ -14,3 +14,5 @@ process.on('exit', () => {
   console.log('Process ended');
   console.log('Is killed? ', process.killed);
 });
+
+// Para conocer más eventos de los procesos, revisar la documentación de [Node.js](https://nodejs.org/api/process.html)

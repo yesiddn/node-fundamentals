@@ -99,3 +99,24 @@ Son módulos que vienen por defecto en NodeJS y no es necesario instalarlos. Alg
 - **setInterval:** Nos permite ejecutar una función cada cierto tiempo.
 
 ![Resumen.](https://static.platzi.com/media/user_upload/global-fa55c760-fa57-43f2-a670-a86345c49c42.jpg)
+
+### Process
+
+#### Child Process
+
+Nos permite ejecutar procesos en el sistema operativo en otro hilo de forma asíncrona. Por ejemplo, podemos ejecutar un script de Python desde NodeJS.
+
+- **child_process.exec():** Ejecuta un comando en el sistema operativo y nos devuelve un callback con 3 parámetros: error, stdout y stderr. [Ejemplo](./moduls/child-process-exec.js)
+
+- **child_process.spawn():** Ejecuta un comando en el sistema operativo y nos devuelve un objeto con toda la información del proceso. [Ejemplo](./moduls/child-process-spawn.js)
+
+El módulo de procesos secundarios de Node.js (child_process) tiene dos funciones spawn y exec, mediante las cuales podemos iniciar un proceso secundario para ejecutar otros programas en el sistema.
+
+La diferencia más significativa entre child_process.spawn y child_process.exec está en que spawn devuelve un stream y exec devuelve un buffer.
+
+- Usa **spawn** cuando quieras que el proceso hijo devuelva datos binarios enormes a Node.
+- Usa **exec** cuando quieras que el proceso hijo devuelva mensajes de estado simples.
+- Usa **spawn** cuando quieras recibir datos desde que el proceso arranca.
+- Usa **exec** cuando solo quieras recibir datos al final de la ejecución.
+
+> Un buen blog para revisar mas del tema: [Diferencia entre spawn y exec de child_process de NodeJS - michelletorres](https://yosoy.dev/diferencia-entre-spawn-y-exec-de-child_process-de-nodejs/)
