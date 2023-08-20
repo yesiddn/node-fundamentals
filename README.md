@@ -152,3 +152,13 @@ La diferencia más significativa entre child_process.spawn y child_process.exec 
     ```addon.hello()```
 
     deberá imprimir `world`
+
+## Debugging
+
+Node.js viene integrado con un modo de debug para poder conectarnos desde cualquier herramienta de inspección de código a nuestro código de node.js. Podemos utilizar en la terminal el flag de --inspect con nodemon.
+
+```bash
+nodemon --inspect [archivo]
+```
+
+Luego, en la barra de navegación de Chrome, escribimos chrome://inspect y damos click en Open dedicated DevTools for Node o en la sección de Remote Target damos click en inspect.
