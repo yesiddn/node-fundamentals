@@ -6,7 +6,7 @@ process.on('beforeExit', () => {
 
 process.on('exit', () => {
   console.log('El proceso ha terminado');
-  
+
   setTimeout(() => {
     console.log('Esto no se va a ver nunca');
   }, 0); // Esto no se va a ejecutar nunca, ya que el proceso ya ha terminado
@@ -23,7 +23,7 @@ process.on('uncaughtException', (err, origen) => {
   setTimeout(() => {
     console.log('Esto viene desde las excepciones');
   }, 0);
-});
+}); // Permite capturar cualquier error que no fue caputurado previamente. Esto evita que Node cierre todos los procesos hijos al encontrar un error no manejado.
 
 funcionQueNoExiste();
 
