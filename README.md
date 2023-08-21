@@ -162,3 +162,92 @@ nodemon --inspect [archivo]
 ```
 
 Luego, en la barra de navegación de Chrome, escribimos chrome://inspect y damos click en Open dedicated DevTools for Node o en la sección de Remote Target damos click en inspect.
+
+## Automatización de tareas con Gulp
+
+`Gulp` es una herramienta que nos permite automatizar tareas repetitivas en nuestro flujo de trabajo. Por ejemplo, podemos minificar archivos, compilar archivos SASS a CSS, procesos de consola o con paquetes externos, etc.
+
+Existen distintos módulos externos que nos ayudan en la automatización de procesos, sin embargo, `gulp` es una herramienta muy completa para este tipo de tareas.
+
+### Instalación
+
+```bash
+npm i gulp gulp-server-livereload
+```
+
+### Uso
+
+Importar el módulo en el archivo `gulpfile.js`.
+
+```js
+const gulp = require('gulp');
+```
+
+Crear la tarea que se va a automatizar.
+
+```js
+gulp.task('build', (cb) => {
+    console.log('Building the site');
+    setTimeout(cb, 1200);
+});
+```
+
+Crear un script personalizado en el package.json.
+
+```json
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build"
+}
+```
+
+Correr el script.
+
+```bash
+npm run build
+
+/* 
+Output:
+    > automatization@1.0.0 build
+    > gulp build
+
+    [16:15:03] Using gulpfile ~/personalProjects/course-nodejs-basis/src/tools/automatization/gulpfile.js
+    [16:15:03] Starting 'build'...
+    Building the site
+    [16:15:04] Finished 'build' after 1.21 s
+*/
+```
+
+### Otros scripts
+
+```js
+gulp.task('serve', (cb) => {
+  gulp.src('www').pipe(
+    server({
+      livereload: false,
+      open: true,
+    })
+  );
+});
+```
+
+Crea una tarea llamada `serve` y en la función utiliza métodos de gulp como el src que permite dar el inicio de la ruta del lugar dónde se obtiene la información. En este caso es un servidor y empieza por `www`.
+
+Luego se concatena el método `pipe()` con la información que crea el módulo `gulp-server-livereload`, que puede recibir algunas propiedades de configuración como `livereload` o `open` .
+
+En caso de querer ejecutar **2 tareas** seguidas se puede hacer lo siguiente en el archivo `gulpfile.js`:
+
+```js
+gulp.task('default', gulp.series('build', 'serve'));
+```
+
+El nombre default en el primer argumento de la tarea permite que no se deba poner nombre a esta, sino que sea la tarea a ejecutar por defecto.
+
+Y luego en el `package.json` deberás poner lo siguiente:
+
+```json
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp",
+},
+```
